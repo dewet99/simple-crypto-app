@@ -58,14 +58,14 @@ body {
 
 .coin-container {
   display: flow-root;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   margin-top: 20px;
 }
 .coin-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed
+  grid-template-columns: repeat(6, 1fr); /* Adjust the number of columns as needed
   /* justify-items: start; */
   align-items: center;
   justify-content: space-between;
@@ -79,7 +79,7 @@ body {
 }
 
 /* Style other columns similarly */
-.coin-price, .coin-volume, .coin-marketcap, .coin-percent, .coin-id {
+.coin-price, .coin-volume, .coin-marketcap, .coin-percent, .coin-id, .coin-default {
   text-align: right;
   /* Add flex-grow, flex-shrink, and flex-basis if you need specific sizing behavior */
   /* flex-grow: 1;
@@ -97,7 +97,7 @@ body {
 
 }
 
-.header-name {
+.header-name, .header-id {
   text-align: left;
   font-weight: bold;
   /* Add flex-grow, flex-shrink, and flex-basis if you need specific sizing behavior */
@@ -107,10 +107,17 @@ body {
   font-size: larger;
 }
 
-.header-price, .header-volume, .header-marketcap, .header-percent, .header-id {
+.header-price, .header-volume, .header-marketcap, .header-percent, .header-default {
   text-align: right;
   font-weight: bold;
   font-size: larger;
 }
 
+.positive-change {
+  color: green;
+}
+
+.negative-change {
+  color: red;
+}
 /* Add more CSS for other classes */
