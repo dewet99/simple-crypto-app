@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+.coin-container {
+  display: flow-root;
+  /* justify-content: center;
+  align-items: center; */
+  padding: 20px;
+  margin-top: 20px;
+}
+.coin-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed
+  /* justify-items: start; */
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.coin-name img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Style other columns similarly */
+.coin-price, .coin-volume, .coin-marketcap, .coin-percent, .coin-id {
+  text-align: right;
+  /* Add flex-grow, flex-shrink, and flex-basis if you need specific sizing behavior */
+  /* flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto; */
+}
+
+.coin-name {
+  text-align: left;
+  font-weight: bold;
+  /* Add flex-grow, flex-shrink, and flex-basis if you need specific sizing behavior */
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+
+}
+
+.header-name {
+  text-align: left;
+  font-weight: bold;
+  /* Add flex-grow, flex-shrink, and flex-basis if you need specific sizing behavior */
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  font-size: larger;
+}
+
+.header-price, .header-volume, .header-marketcap, .header-percent, .header-id {
+  text-align: right;
+  font-weight: bold;
+  font-size: larger;
+}
+
+/* Add more CSS for other classes */
