@@ -8,6 +8,7 @@ import {
   Route
 } from 'react-router-dom';
 import {Dashboard} from './Dashboard.js'
+import { CoinDetail } from './CoinDetail.js';
 // const coins = 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path = "/" element={<Dashboard />} />
+        <Route path = "/coin/:id" element={<CoinDetail />}/>
       </Routes>
     </Router>
 

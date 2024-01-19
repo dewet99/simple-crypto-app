@@ -11,7 +11,7 @@ export function Coin({ coinRank, coin }) {
     <div className='coin-container' onClick={goToCoinDetail}>
       <div className='coin-row'>
         <div className='coin-rank'>{coinRank}</div>
-        <div className='coin-name'><img src={coin.image} alt={coin.id} className='header-name' /> {coin.name}</div>
+        <div className='coin-name'><img src={coin.image} alt={coin.id}/> {coin.name}</div>
         <div className='coin-price'>{coin.current_price}</div>
         <div className={`coin-default ${coin.price_change_percentage_1h_in_currency >= 0 ? 'positive-change' : 'negative-change'}`}>
           {parseFloat(coin.price_change_percentage_1h_in_currency.toFixed(2))}%

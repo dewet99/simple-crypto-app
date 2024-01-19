@@ -123,4 +123,79 @@ body {
 .negative-change {
   color: red;
 }
+
+
+.coin-detail-header img {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: start;
+}
+
+.coin-details-price {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* General styling for the coin detail container */
+.coin-detail-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px; /* Adjust the width as needed */
+  margin-left: 0px;
+  margin-top: 20px;
+
+}
+
+/* Styling for the header section of the coin details */
+.coin-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+/* Styling for the coin name and the price */
+.coin-detail-name {
+  font-weight: bold;
+  font-size: 36px; /* Large font size for visibility */
+  align-self: center;
+  margin-left: 8px;
+}
+
+.coin-detail-price {
+  font-weight: bold;
+  font-size: 24px; /* Large font size for visibility */
+  align-self: center;
+
+}
+
+/* Styling for the price and percentage change container */
+.coin-price-detail-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+/* Styling for the smaller text, such as market cap and volume */
+.coin-detail-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* Light line for separating items */
+}
+
+.coin-detail-row {
+  display: flex;       /* Establishes a flex container */
+  align-items: center; /* Vertically centers the flex items */
+  justify-content: start; /* Aligns items to the start of the container */
+}
+
+
 /* Add more CSS for other classes */
