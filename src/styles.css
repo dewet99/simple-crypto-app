@@ -62,6 +62,7 @@ body {
   align-items: center;
   padding: 20px;
   margin-top: 20px;
+  
 }
 .coin-row {
   display: grid;
@@ -76,6 +77,7 @@ body {
 .coin-name img {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 /* Style other columns similarly */
@@ -94,6 +96,7 @@ body {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
+  cursor: pointer;
 
 }
 
@@ -110,7 +113,7 @@ body {
 .header-price, .header-volume, .header-marketcap, .header-percent, .header-default {
   text-align: right;
   font-weight: bold;
-  font-size: larger;
+  font-size: larger; 
 }
 
 .positive-change {
