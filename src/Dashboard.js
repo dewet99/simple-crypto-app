@@ -6,61 +6,51 @@ export const Dashboard = () => {
 
     useEffect(() => {
         fetchTopCoins();
-
-        // Set up an interval to refresh data every 60 seconds
-        const intervalId = setInterval(fetchTopCoins, 60000); // 60000 ms = 60 seconds
-
-        // Clear the interval on component unmount
-        return () => clearInterval(intervalId);
-
+        console.log("Use effect called from dashboard to fetch top coins")
     }, [])
 
     const fetchTopCoins = async () => {
+
         const cacheKey = 'topCoinsData';
-        const cachedData = sessionStorage.getItem(cacheKey);
+        const url = new URL('https://api.coingecko.com/api/v3/coins/markets');
+        const params = {
+            vs_currency: 'zar',
+            order: 'market_cap_desc',
+            per_page: 10,
+            page: 1,
+            sparkline: false,
+            price_change_percentage: '1h,24h,7d',
+        };
+        url.search = new URLSearchParams(params).toString();
 
-        if (cachedData) {
-            setTopCoins(JSON.parse(cachedData));
-        }
-        else {
-
-            const url = new URL('https://api.coingecko.com/api/v3/coins/markets');
-            const params = {
-                vs_currency: 'zar',
-                order: 'market_cap_desc',
-                per_page: 2,
-                page: 1,
-                sparkline: false,
-                price_change_percentage: '1h,24h,7d',
-            };
-            url.search = new URLSearchParams(params).toString();
-
-            try {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Error: ${response.status}`);
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
                 }
+            });
 
-                const data = await response.json();
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
 
-                setTopCoins(data);
+            const data = await response.json();
 
-                // Cache data
-                sessionStorage.setItem(cacheKey, JSON.stringify(data));
+            setTopCoins(data);
 
-            } catch (error) {
-                console.error('Failed to fetch coins:', error.message)
+            // Cache data
 
-                const fallBackData = sessionStorage.getItem(cacheKey);
-                if (fallBackData) {
-                    setTopCoins(JSON.parse(fallBackData));
-                }
+            sessionStorage.setItem(cacheKey, JSON.stringify(data));
+            console.log("Cached data");
+
+        } catch (error) {
+            console.error('Failed to fetch coins:', error.message)
+
+            const fallBackData = sessionStorage.getItem(cacheKey);
+            if (fallBackData) {
+                setTopCoins(JSON.parse(fallBackData));
+                console.log("Loaded cached data");
             }
         }
     }
@@ -80,13 +70,15 @@ export const Dashboard = () => {
         );
     }
 
+
+
     return (
         <section>
             {dashboardHeader()}
-            {topCoins.map((coin, index) => (
+            {topCoins.map((coin) => (
                 <Coin
                     key={coin.id}
-                    coinRank={index + 1}
+                    coinRank={coin.market_cap_rank}
                     coin={coin}
                 />
             ))}

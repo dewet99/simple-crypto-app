@@ -140,17 +140,7 @@ body {
   text-align: left;
 }
 
-/* General styling for the coin detail container */
-.coin-detail-container {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 400px; /* Adjust the width as needed */
-  margin-left: 0px;
-  margin-top: 20px;
 
-}
 
 /* Styling for the header section of the coin details */
 .coin-detail-header {
@@ -191,11 +181,68 @@ body {
   border-bottom: 1px solid #eee; /* Light line for separating items */
 }
 
-.coin-detail-row {
+.coin-detail-header-row {
   display: flex;       /* Establishes a flex container */
   align-items: center; /* Vertically centers the flex items */
   justify-content: start; /* Aligns items to the start of the container */
 }
 
+.detail-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid hsla(0, 0%, 93%, 0.589);
+}
 
+.detail-item-label {
+  text-align: left;
+  margin-right: 20px;
+}
+
+.detail-item-value {
+  text-align: right;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+/* Sparkline chart container */
+.sparkline-container {
+  flex: 2; /* Allows the sparkline to take up twice the space of the details box */
+  align-items: stretch; /* Ensures the chart is the full height of its container */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.details-and-sparkline-container {
+  display: flex;
+  max-width: 1600px; /* Maximum width of the content area */
+  width: 100%; /* Use up the entire width allowed by the layout-container */
+  gap: 40px; /* Space between the details box and the graph */
+}
+
+.layout-container {
+  display: flex;
+  justify-content: center; /* Centers the content on the main axis */
+  padding: 0 40px; /* 80px of padding on left and right sides */
+  align-items: stretch; /* Stretches children to fill the container height */
+  gap: 80px; /* Space between the details box and the graph */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* border-radius: 8px; */
+  padding: 16px;
+}
+
+/* General styling for the coin detail container */
+.coin-detail-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px; /* Adjust the width as needed */
+  margin-left: 0px;
+  margin-top: 10px;
+  width: 100%
+
+
+}
 /* Add more CSS for other classes */
