@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import Chart from 'chart.js/auto';
 
-export const SparklineChart = ({coinDetails}) => {
+export const SparklineChart = ({ coinDetails }) => {
   const chartRef = useRef(null);
   const data = coinDetails?.market_data?.sparkline_7d.price
   const fillColor = coinDetails?.market_data?.price_change_percentage_7d_in_currency.usd >= 0 ? 'rgba(0, 255, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)';
   const lineColor = coinDetails?.market_data?.price_change_percentage_7d_in_currency.usd >= 0 ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)';
-  const titleData=coinDetails?.name + ' 7D Price Change - USD'
+  const titleData = coinDetails?.name + ' 7D Price Change - USD'
 
 
   useEffect(() => {
@@ -14,10 +14,10 @@ export const SparklineChart = ({coinDetails}) => {
     const chart = new Chart(chartCanvas, {
       type: 'line',
       data: {
-        labels: data?.map((_, index) => index), // Or another labeling scheme
+        labels: data?.map((_, index) => index),
         datasets: [{
           data: data,
-          borderColor: lineColor, // Example line color
+          borderColor: lineColor,
           borderWidth: 1,
           fill: true,
           backgroundColor: fillColor
@@ -29,29 +29,29 @@ export const SparklineChart = ({coinDetails}) => {
           x: {
             title: {
               display: true,
-              text: 'Index', // Replace with your x-axis label
+              text: 'Index',
             },
           },
           y: {
             title: {
               display: true,
-              text: 'USD Value*', // Replace with your x-axis label
+              text: 'USD Value*',
             },
           },
         },
         elements: {
           point: {
-            radius: 0, // Hide the points
+            radius: 0,
           },
           line: {
-            tension: 0.4, // Makes the line smooth
+            tension: 0.4,
           },
         },
         plugins: {
           legend: {
-            display: false, // No legend for sparkline
+            display: false,
           },
-          title : {
+          title: {
             display: true,
             text: titleData,
             position: 'top',

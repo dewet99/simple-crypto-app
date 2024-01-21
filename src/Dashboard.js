@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Coin } from './Coin.js'
+import React from 'react';
 
-export const Dashboard = () => {
+export const Dashboard = React.memo(() => {
     const [topCoins, setTopCoins] = useState([]);
 
     useEffect(() => {
@@ -68,8 +69,6 @@ export const Dashboard = () => {
         );
     }
 
-
-
     return (
         <section>
             {dashboardHeader()}
@@ -82,4 +81,4 @@ export const Dashboard = () => {
             ))}
         </section>
     );
-}
+});
