@@ -253,4 +253,8 @@ body {
   text-align: center;
   color: #666;
 }
+
+.button {
+  align-items: stretch;
+}
 /* Add more CSS for other classes */

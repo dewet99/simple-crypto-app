@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { SparklineChart } from './Sparkline';
 
@@ -18,7 +18,7 @@ export function CoinDetail() {
         const params = {
             sparkline: true,
             vs_currency: 'zar',
-        
+
             localisation: 'zar'
         };
 
@@ -41,6 +41,18 @@ export function CoinDetail() {
             console.error('Failed to fetch coins:', error.message)
         }
     }
+
+    const GoBackButton = () => {
+        let navigate = useNavigate();
+
+        const goBack = () => {
+            navigate(-1);
+        };
+
+        return (
+            <button onClick={goBack}>Back to Dashboard</button>
+        );
+    };
 
     const coinDetailContainer = () => {
         return (
@@ -78,21 +90,38 @@ export function CoinDetail() {
                     <span className='detail-item-label'>7d Change - ZAR Relative:</span>
                     <span className={`detail-item-value ${coinDetails.market_data?.price_change_percentage_7d_in_currency.zar >= 0 ? 'positive-change' : 'negative-change'}`}>{coinDetails.market_data?.price_change_percentage_7d_in_currency.zar}%</span>
                 </div>
+                <div className='detail-item-container'>
+                    <span className='detail-item-label'>7d Change - USD Relative:</span>
+                    <span className={`detail-item-value ${coinDetails.market_data?.price_change_percentage_7d_in_currency.usd >= 0 ? 'positive-change' : 'negative-change'}`}>{coinDetails.market_data?.price_change_percentage_7d_in_currency.usd}%</span>
+                </div>
             </div>
         );
     }
 
-    return (
-        <section>
-            <div className='layout-container'>
-                <div className='details-and-sparkline-container'>
-                    {coinDetailContainer()}
-                    <SparklineChart coinDetails={coinDetails} />
-                </div>
-            </div>
-            
-        </section>
+    const DetailPage = () => {
+        if (coinDetails) {
+            return (
+                <section>
+                    <GoBackButton />
+                    <div className='layout-container'>
+                        <div className='details-and-sparkline-container'>
+                            {coinDetailContainer()}
+                            <SparklineChart coinDetails={coinDetails} />
+                        </div>
+                    </div>
+                </section>
+            );
+        }else {
+            return (
+                <section>
+                    <h1>There was an error, probably the API rate limit. Go make some cofee or something and try again later :P </h1>
+                </section>
+            );
+        }
+    }
 
+    return (
+        <DetailPage />
     );
 
 

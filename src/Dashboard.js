@@ -6,7 +6,6 @@ export const Dashboard = () => {
 
     useEffect(() => {
         fetchTopCoins();
-        console.log("Use effect called from dashboard to fetch top coins")
     }, [])
 
     const fetchTopCoins = async () => {
@@ -40,7 +39,6 @@ export const Dashboard = () => {
             setTopCoins(data);
 
             // Cache data
-
             sessionStorage.setItem(cacheKey, JSON.stringify(data));
             console.log("Cached data");
 
