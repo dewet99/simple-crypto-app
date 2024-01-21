@@ -5,7 +5,7 @@ import { SparklineChart } from './Sparkline';
 export function CoinDetail() {
     let { id } = useParams()
     const [coinDetails, setCoinDetails] = useState([]);
-    let localeString = 'en-US'
+    let localeString = 'zar'
 
     useEffect(() => {
         fetchCoinByID();
@@ -41,28 +41,6 @@ export function CoinDetail() {
             console.error('Failed to fetch coins:', error.message)
         }
     }
-
-    const SparklineWrapper = () => {
-        const fillColor = coinDetails.market_data?.price_change_percentage_7d_in_currency.usd >= 0 ? 'rgba(0, 255, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)';
-        const lineColor = coinDetails.market_data?.price_change_percentage_7d_in_currency.usd >= 0 ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)';
-
-        return (
-            <div className='sparkline-container'>
-                {coinDetails.market_data?.sparkline_7d.price.length > 0 &&
-                    <SparklineChart
-                        sparklineData={coinDetails.market_data?.sparkline_7d.price}
-                        lineColor={lineColor}
-                        fillColor={fillColor}
-                        titleData={coinDetails.name + ' 7D Price Change - USD'}
-                    />}
-                <div className='smalltext'>*The the sparkline displays the 7-day price change in USD, whereas the 7D change on the left is in ZAR and factors in the exchange rate.</div>
-
-                
-            </div>
-        );
-    }
-
-
 
     const coinDetailContainer = () => {
         return (
@@ -109,7 +87,7 @@ export function CoinDetail() {
             <div className='layout-container'>
                 <div className='details-and-sparkline-container'>
                     {coinDetailContainer()}
-                    {SparklineWrapper()}
+                    <SparklineChart coinDetails={coinDetails} />
                 </div>
             </div>
             
