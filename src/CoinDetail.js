@@ -43,8 +43,8 @@ export function CoinDetail() {
     }
 
     const SparklineWrapper = () => {
-        const fillColor = coinDetails.market_data?.price_change_percentage_7d_in_currency.zar >= 0 ? 'rgba(0, 255, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)';
-        const lineColor = coinDetails.market_data?.price_change_percentage_7d_in_currency.zar >= 0 ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)';
+        const fillColor = coinDetails.market_data?.price_change_percentage_7d_in_currency.usd >= 0 ? 'rgba(0, 255, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)';
+        const lineColor = coinDetails.market_data?.price_change_percentage_7d_in_currency.usd >= 0 ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)';
 
         return (
             <div className='sparkline-container'>
@@ -55,6 +55,9 @@ export function CoinDetail() {
                         fillColor={fillColor}
                         titleData={coinDetails.name + ' 7D Price Change - USD'}
                     />}
+                <div className='smalltext'>*The the sparkline displays the 7-day price change in USD, whereas the 7D change on the left is in ZAR and factors in the exchange rate.</div>
+
+                
             </div>
         );
     }
@@ -108,9 +111,8 @@ export function CoinDetail() {
                     {coinDetailContainer()}
                     {SparklineWrapper()}
                 </div>
-
-
             </div>
+            
         </section>
 
     );

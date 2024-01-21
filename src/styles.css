@@ -208,7 +208,7 @@ body {
 
 /* Sparkline chart container */
 .sparkline-container {
-  flex: 2; /* Allows the sparkline to take up twice the space of the details box */
+  flex: 1; /* Allows the sparkline to take up twice the space of the details box */
   align-items: stretch; /* Ensures the chart is the full height of its container */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
@@ -219,13 +219,14 @@ body {
   max-width: 1600px; /* Maximum width of the content area */
   width: 100%; /* Use up the entire width allowed by the layout-container */
   gap: 40px; /* Space between the details box and the graph */
+  align-items: stretch;
 }
 
 .layout-container {
   display: flex;
   justify-content: center; /* Centers the content on the main axis */
   padding: 0 40px; /* 80px of padding on left and right sides */
-  align-items: stretch; /* Stretches children to fill the container height */
+  align-items: 100%; /* Stretches children to fill the container height */
   gap: 80px; /* Space between the details box and the graph */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   /* border-radius: 8px; */
@@ -244,5 +245,12 @@ body {
   width: 100%
 
 
+}
+
+.smalltext {
+  font-size: 8px;
+  padding: 2px;
+  text-align: center;
+  color: #666;
 }
 /* Add more CSS for other classes */

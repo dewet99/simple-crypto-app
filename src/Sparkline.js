@@ -30,7 +30,7 @@ export const SparklineChart = ({ sparklineData, lineColor, fillColor, titleData}
           y: {
             title: {
               display: true,
-              text: 'USD Value', // Replace with your x-axis label
+              text: 'USD Value*', // Replace with your x-axis label
             },
           },
         },
