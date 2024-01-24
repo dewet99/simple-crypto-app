@@ -15,7 +15,7 @@ This project was made using `npm 10.3.0` and `npx 10.3.0`.
     npm ci
     ```
 
-3. Run the following inside the clone repo:
+3. Run the following inside the cloned repo:
     ```bash
     npm start
     ```
