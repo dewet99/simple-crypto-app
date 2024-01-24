@@ -23,9 +23,10 @@ This project was made using `npm 10.3.0` and `npx 10.3.0`.
 
 ## Usage
 Click on stuff until stuff happens. That's about the extent of the functionality. You get these two screens:
+
 The Dashboard:
 ![Dashboard](/pics/dashboard.png)
 
 Clicking on a coin brings up its details page:
-[CoinDetails](/pics/details.png)
+![CoinDetails](/pics/details.png)
 
