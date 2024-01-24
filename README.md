@@ -1,4 +1,4 @@
-# Octoco Technical Interview
+# Simple Crypto Web App
 ## Description
 A super simple web app, built using ReactJS and no prior React experience. The app displays a list of the top 10 cryptocurrencies and some additional details. You can click on a cryptocurrency to see more details about it.
 
